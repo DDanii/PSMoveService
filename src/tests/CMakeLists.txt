@@ -284,7 +284,7 @@ SET(TEST_UDP_SERVER_REQ_LIBS)
 # Dependencies
 
 # Boost
-find_package(Boost 1.59.0 REQUIRED QUIET COMPONENTS atomic chrono filesystem program_options system thread)
+find_package(Boost 1.58.0 REQUIRED QUIET COMPONENTS atomic chrono filesystem program_options system thread)
 list(APPEND TEST_UDP_SERVER_INCL_DIRS ${Boost_INCLUDE_DIRS})
 list(APPEND TEST_UDP_SERVER_REQ_LIBS ${Boost_LIBRARIES})
 
@@ -323,7 +323,7 @@ SET(TEST_UDP_CLIENT_REQ_LIBS)
 # Dependencies
 
 # Boost
-find_package(Boost 1.59.0 REQUIRED QUIET COMPONENTS system)
+find_package(Boost 1.58.0 REQUIRED QUIET COMPONENTS system)
 list(APPEND TEST_UDP_CLIENT_INCL_DIRS ${Boost_INCLUDE_DIRS})
 list(APPEND TEST_UDP_CLIENT_REQ_LIBS ${Boost_LIBRARIES})
 

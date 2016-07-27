@@ -134,7 +134,7 @@ list(APPEND PSMOVE_SERVICE_INCL_DIRS ${PROTOBUF_INCLUDE_DIRS})
 list(APPEND PSMOVE_SERVICE_REQ_LIBS ${PROTOBUF_LIBRARIES})
 
 # Boost. TODO: Trim this list.
-find_package(Boost 1.59.0 REQUIRED QUIET COMPONENTS atomic chrono filesystem program_options system thread)
+find_package(Boost 1.58.0 REQUIRED QUIET COMPONENTS atomic chrono filesystem program_options system thread)
 list(APPEND PSMOVE_SERVICE_INCL_DIRS ${Boost_INCLUDE_DIRS})
 list(APPEND PSMOVE_SERVICE_REQ_LIBS ${Boost_LIBRARIES})
 IF(MSVC) # Disable asio auto linking in date-time and regex

@@ -3,7 +3,10 @@ project(PSMoveService VERSION 0.0.1)
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 IF (NOT MSVC)
-    set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+    set(CMAKE_CXX_FLAGS "-std=c++11")
+    IF (NOT CMAKE_COMPILER_IS_GNUCXX)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    ENDIF()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-switch")
 ENDIF()
 
@@ -42,8 +45,11 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     # Location of homebrew opencv3
     # Alternatively, can do `brew ln opencv3 --force`
-    message("-- Using homebrew opencv3")
+    message(status "Using homebrew opencv3")
     set(OpenCV_DIR "/usr/local/Cellar/opencv3/3.1.0_1/share/OpenCV")
+ELSE()
+    message(status "Using OpenCV in /usr/local/share/OpenCV")
+    set(OpenCV_DIR "/usr/local/share/OpenCV")
 ENDIF()#Windows or Darwin
 ENDIF(NOT OpenCV_DIR)
 
